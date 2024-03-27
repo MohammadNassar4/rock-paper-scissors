@@ -17,3 +17,26 @@ function playRound(player, computer) {
         return "you lose!";
     }
 }
+let playerScore = 0;
+let computerScore = 0;
+function playGame(playerScore, computerScore) {
+    for (let i = 0; i < 5; i++) {
+        let computerChoice = getComputerChoice();
+        let playerChoice = prompt("Enter rock, paper scissors.");
+        let playRoundValue = playRound(playerChoice, computerChoice);
+        console.log(playRoundValue);
+        if (playRoundValue == "you win!") {
+            playerScore++;
+        }else if (playRoundValue == "you lose!") {
+            computerScore++;
+        }
+    }
+    if (playerScore == computerScore) {
+        return "the game is tie!";
+    }else if (playerScore > computerScore) {
+        return "you won the game!";
+    }else {
+        return "you lost the game!";
+    }
+}
+console.log(playGame(playerScore, computerScore));
